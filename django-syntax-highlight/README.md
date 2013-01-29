@@ -1,5 +1,7 @@
-Introduction
-============
+Description
+===========
+
+### Introduction
 
 I decided to create syntax highlighting file for Django Framework for my
 favourite text editor Vim.  Some of you would probably say why in the world you
@@ -28,8 +30,8 @@ future I'll create more compact and robust application for the same purpose
 using only one application.
 
 
-How this program work? (Preparation work)
-====================== ==================
+### How this program work?
+####  (Preparation work)
 
 Program requires two arguments. An input file name and an output file name.
 
