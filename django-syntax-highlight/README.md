@@ -1,6 +1,8 @@
 Description
 ===========
 
+NOTE: Still in developing process!!
+
 ### Introduction
 
 I decided to create syntax highlighting file for Django Framework for my
@@ -81,28 +83,30 @@ Thus I have to check and edit the file manualy and delete unnecessary things.
 
 Next, open each <output_file> in text editor:
 
- +----------------------------------------------------------------------------
- | In normal mode type `qa' keys sequently,
- | then type these commands exactly in order they appear!:
- |   (`q' - starts to record a macro, `a' - the name of register to store in.)
- |
- |     :0vf:wwhdf(v$hdj
- |
- | Then press again `q' key (stop recording a macro).
- |
- | I am not going to explain here what these characters means. If you are a
- | Vim user chances are good that you allready understand these.
- |
- | Now you type in Normal mode: `<number_of_lines_in_file-1>@a'
- | In my case I type:
- |
- |     5140@a<enter>
- |
- | NOTE: This will take a minute or two until it finishes.
- | Then run one of space removal function in `functions.vim' file to remove each
- | trail space character/s if they exists.
- | Next do these commands for remined two files for classes and constants.
- +----------------------------------------------------------------------------
+In normal mode type `qa' keys sequently,
+then type these commands exactly in order they appear!:
+  (`q' - starts to record a macro, `a' - the name of register to store in.)
+
+```
+    :0vf:wwhdf(v$hdj
+```
+
+Then press again `q' key (stop recording a macro).
+
+I am not going to explain here what these characters means. If you are a
+Vim user chances are good that you allready understand these.
+
+Now you type in Normal mode: `<number_of_lines_in_file-1>@a'
+In my case I type:
+
+```
+    5140@a<enter>
+```
+
+NOTE: This will take a minute or two until it finishes.
+Then run one of space removal function in `functions.vim' file to remove each
+trail space character/s if they exists.
+Next do these commands for remined two files for classes and constants.
 
 If you are lucky then everything worked fine.
 Save the file and you are good to go.
@@ -116,12 +120,9 @@ Compare two hours of frustration with two days of frustration and still have
 some typing errors... I think it is worth to give it a try.
 
 
-What is this script doing to the input file?
-=============================================
+### What is this script doing to the input file?
 
 Goal of script is to take the input file:
-    1. Sort all lines by alphabet
-    2. Remove duplicates
-    3. Format function names in such way that they don't cross the
-       80 character long line by appending `\ ' chars at the beggining
-       of each line.
+1. Sort all lines by alphabet
+2. Remove duplicates
+3. Format function names in such way that they don't cross the 80 character long line by appending `\ ' chars at the beggining of each line.
