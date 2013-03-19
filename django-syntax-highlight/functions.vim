@@ -89,7 +89,7 @@ function! Remove_end_spaces()
 endfunction
 " }}}
 
-" Function to unpack anything within parenteses. {{{1
+" Function to unpack anything within parentheses. {{{1
 " You can use it to unpack everithing from '(' to the EOL and
 " from ')' to the beginning of the line.
 " And it is doing it by looping 'recursively' through particular line.
@@ -169,7 +169,7 @@ function! Unpack_arguments()
             if line(".") <# line("$")
                 execute "normal! dd"
             else
-                echom 'BREAK1!'
+                "echom 'BREAK1!'
                 execute "normal! dd"
                 break
             endif
@@ -179,7 +179,7 @@ function! Unpack_arguments()
             if line(".") <# line("$")
                 execute "normal! \<Down>"
             else
-                echom 'BREAK2!'
+                "echom 'BREAK2!'
                 execute "normal! dd"
                 break
             endif
@@ -196,6 +196,8 @@ function! Unpack_arguments()
         execute "normal! \<Down>"
     endwhile
 
+    normal gg
+
 endfunction
 " }}}
 
@@ -209,4 +211,4 @@ function! Test_func()
 endfunction
 " }}}
 
-" vim: set foldmethod=marker foldlevel=2:
+" vim: set foldmethod=marker foldlevel=2 tw=100:
