@@ -1,24 +1,23 @@
 Description
 ===========
 
-NOTE: Under in development!!!
+NOTE: Under development!!!
 
 ### Introduction
 
 I decided to create syntax highlighting file for Django Framework for my
-favourite text editor Vim.  Some of you would probably say why in the world you
-would want to have that? The answer is simple: because.  I just want to have
-django specific code in different color then my code.
+favourite text editor Vim.  I just want to have django specific code in
+different colors then my code.
 
 So the idea was to collect all the function names, constants, function argument
-names, classes and assign a greenish tone to them. (But of course you can
-create/use your own favourite color scheme.)
+names, classes and assign a greenish tone to them. (But of course anyone can
+create/use there own favourite color scheme.)
 
 Usage of this program precedes of doing a good grep pattern command against source
-files, some manual polishing of the resulted file and function execution in
-Vim for more polishing.
-These Vim functions are also on this repository in file called <functions.vim>.
-You simply call these functions on input file as described in their comments.
+files, some manual polishing of the resulted files and function execution in
+Vim for more polishing.  These Vim functions are also on this repository in file
+called <functions.vim>.  You simply call these functions on input file as
+described in their comments.
 
 After that you can use this small python program to format it further and better.
 I know it is messy, (grep, vim, manual edit, python..., etc.) but that's the
@@ -65,13 +64,13 @@ Grep all django function arguments:
           '\(,\s\+\w\{2,\}=\{1\}\|(\w\{2,\}=\{1\}\)' . ><output_args_file>
 ```
 
-After this operation you end up with three <output_file>.
+After this operation you end up with three <output_files>.
 I have to underline again that it isn't a perfect collection because the grep pattern
-may filter out some results that don't match perfectly (eg. it matches
+may filter out some results that don't match perfectly (e.g. it matches
 some key words that are only one letter long which I don't want to include in
 syntax highlightning, how would that look like if each character would get
 syntax highlighting), output of function arguments are pretty nasty, etc...
-Thus I have to check and edit the file manualy and delete unnecessary things.
+Thus you have to check and edit the file manualy and delete unnecessary things.
 
 Next, open each <output_file> in text editor:
 
@@ -83,7 +82,7 @@ then type these commands exactly in order they appear!:
     :0vf:wwhdf(v$hdj
 ```
 
-Then press again `q' key (stop recording a macro).
+Then press again 'q' key (stop recording a macro).
 
 I am not going to explain here what these characters means. If you are a
 Vim user chances are good that you allready understand these.
