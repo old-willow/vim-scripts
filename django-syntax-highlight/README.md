@@ -114,6 +114,6 @@ some typing errors... I think it is worth to give it a try.
 ### What is this script doing to the input file?
 
 Goal of this script is to take the input file:
-    1. Sort all lines by alphabet
-    2. Remove duplicates
-    3. Format function names in such way that they don't cross the 80 character long line by appending '\ ' chars at the beggining of each line.
+1. Sort all lines by alphabet
+2. Remove duplicates
+3. Format function names in such way that they don't cross the 80 character long line by appending '\ ' chars at the beggining of each line and assuming 12 characters at the beggining of the line.
