@@ -1266,7 +1266,7 @@ syn keyword djangoFunctions CASCADE DO_NOTHING DV_maker Deserializer DocFileSuit
             \ truncate_name truncate_words truncatechars truncatewords
             \ truncatewords_html tuple tuplize two_to_three type type_name
             \ typecast_date typecast_decimal typecast_time typecast_timestamp tz
-            \ tzname ugettext unary_predicate unclosed_block_tag
+            \ tzname ugettext ugettext_lazy unary_predicate unclosed_block_tag
             \ unescape_entities unescape_string_literal unget ungettext union
             \ unionagg unique unique_error_message unique_kwargs unique_messages
             \ unit_attname units units_func units_name unlocalize unlock
@@ -1306,20 +1306,20 @@ syn keyword djangoFunctions CASCADE DO_NOTHING DV_maker Deserializer DocFileSuit
 syn keyword djangoMainModules bin conf contrib core db dispatch forms http
             \ middleware shortcuts template templatetags
             \ test utils views
-"
-"" `db' is not always a module it can be a queryset option to.
-"syn match djangoModulesFixing "\s\+[django]\([\.]\S\+\)\+"
-"            \ contains=djangoContribModules display
-"
-"syn keyword djangoContribModules contained admin admindocs auth comments contenttypes
-"            \ databrowse flatpages formtools gis humanize
-"            \ localflavor markup messages redirects sessions
-"            \ sitemaps sites staticfiles syndication webdesig
-"
-"syn keyword djangoCoreModules cache context_processors exceptions files handlers
-"            \ mail management paginator serializers servers
-"            \ signals signing urlresolvers validators wsgi xheaders
-"
+
+" 'db' is not always a module it can be a queryset option too.
+syn match djangoModulesFixing "\s\+[django]\([\.]\S\+\)\+"
+            \ contains=djangoContribModules display
+
+syn keyword djangoContribModules contained admin admindocs auth comments contenttypes
+            \ databrowse flatpages formtools gis humanize
+            \ localflavor markup messages redirects sessions
+            \ sitemaps sites staticfiles syndication webdesig
+
+syn keyword djangoCoreModules cache context_processors exceptions files handlers
+            \ mail management paginator serializers servers
+            \ signals signing urlresolvers validators wsgi xheaders
+
 "syn keyword djangoDbModules backends models transaction utils
 "
 "syn keyword djangoDispatchModules dispatcher saferef
@@ -1461,16 +1461,18 @@ syn match djangoFieldLookup ".+__exact\|.+__iexact\|.+__contains\|.+__icontains\
 "
 "syn keyword djangoInstanceMethods full_clean clean_fields clean save pk delete
 "            \ get_absolute _url permalin
-"
-"syn match djangoCustomFunctions
-"            \ |"\(get_\S\+_display\)\|\(get_next_by_\S\+\)\|\(get_previous_by_\S\+\)"
-"
+
+syn match djangoCustomFunctions
+            \ "\(get_\S\+_display\)\|\(get_next_by_\S\+\)\|\(get_previous_by_\S\+\)"
+
 "syn keyword djangoManagers Manager RelatedManager get_query_set
 "            \ objects use_for_related_field
+
 "" djangoTranscactions {{{
 "syn keyword djangoTransactions autocommit commit_on_success
 "            \ commit_manually savepoint savepoint_commit savepoint_rollback
 "" }}}
+
 "" djangoAdmin {{{
 "syn keyword djangoAdmin ModelAdmin actions actions_on_top actions_on_bottom
 "            \ actions_selection_counter date_hierarchy exclude fields fieldsets
@@ -1489,6 +1491,7 @@ syn match djangoFieldLookup ".+__exact\|.+__iexact\|.+__contains\|.+__icontains\
 "            \ url_params_from_lookup_dict ForeignKeyRawIdWidget
 "            \ base_url_parameters url_parameters
 ""}}}
+
 "" djangoAdminMethods {{{
 "syn keyword djangoAdminMethods save_model delete_model save_formset
 "            \ get_ordering save_related get_readonly_fields
@@ -1499,6 +1502,7 @@ syn match djangoFieldLookup ".+__exact\|.+__iexact\|.+__contains\|.+__icontains\
 "            \ has_delete_permission queryset message_user get_paginator
 "            \ add_view change_view changelist_view delete_view history_view
 ""}}}
+
 "" djangoModuleClass {{{
 "syn keyword djangoModelClass ModelBase ModelState Model Empty
 "            \ simple_class_factory model_upickle subclass_exception Aggregate
@@ -1540,47 +1544,7 @@ syn match djangoFieldLookup ".+__exact\|.+__iexact\|.+__contains\|.+__icontains\
 "            \ db_type create_many_to_many_intemediary_model
 "            \ SubfiledBase Creator make_contrib
 "" }}}
-"" djangoConstants {{{
-"syn keyword djangoConstants DEBUG TEMPLATE_DEBUG DEBUG_PROPAGATE_EXCEPTIONS
-"            \ USE_ETAGS ADMINS INTERNAL_IPS TIME_ZONE USE_TZ LANGUAGE_CODE
-"            \ LANGUAGES LANGUAGES_BIDI USE_I18N LOCALE_PATHS
-"            \ LANGUAGE_COOKIE_NAME USE_L10N MANAGERS DEFAULT_CONTENT_TYPE
-"            \ DEFAULT_CHARSET FILE_CHARSET SERVER_EMAIL
-"            \ SEND_BROKEN_LINK_EMAILS DATABASES DATABASE_ROUTERS EMAIL_BACKEND
-"            \ EMAIL_HOST EMAIL_PORT EMAIL_HOST_USER EMAIL_HOST_PASSWORD
-"            \ EMAIL_USE_TLS INSTALLED_APPS TEMPLATE_DIRS TEMPLATE_LOADERS
-"            \ TEMPLATE_CONTEXT_PROCESSORS TEMPLATE_STRING_IF_INVALID
-"            \ DEFAULT_FROM_EMAIL EMAIL_SUBJECT_PREFIX APPEND_SLASH
-"            \ PREPEND_WWW FORCE_SCRIPT_NAME DISALLOWED_USER_AGENT
-"            \ ABSOLUTE_URL_OVERRIDES ALLOWED_INCLUDE_ROOTS ADMIN_FOR
-"            \ IGNORABLE_404_URLS SECRET_KEY DEFAULT_FILE_STORAGE MEDIA_ROOT
-"            \ MEDIA_URL STATIC_ROOT STATIC_URL FILE_UPLOAD_HANDLERS
-"            \ FILE_UPLOAD_MAX_MEMORY_SIZE FILE_UPLOAD_TEMP_DIR
-"            \ FILE_UPLOAD_PERMISSIONS FORMAT_MODULE_PATH DATE_FORMAT
-"            \ TIME_FORMAT YEAR_MONTH_FORMAT MONTH_DAY_FORMAT
-"            \ SHORT_DATETIME_FORMAT DATE_INPUT_FORMATS TIME_INPUT_FORMATS
-"            \ DATETIME_INPUT_FORMATS FIRST_DAT_OF_WEEK DECIMAL_SEPARATOR
-"            \ USE_THOUSAND_SEPARATOR NUMBER_GROUPING THOUSAND_SEPARATOR
-"            \ TRANSACTIONS_MANAGED URL_VALIDATOR_USER_AGENT DEFAULT_TABLESPACE
-"            \ DEFAULT_INDEX_TABLESPACE X_FRAME_OPTIONS USE_X_FORWARDED_HOST
-"            \ WSGI_APPLICATION SECURE_PROXY_SSL_HEADER MIDDLEWARE_CLASSES
-"            \ SESSION_COOKIE_NAME SESSION_COOKIE_AGE SESSION_COOKI_DOMAIN
-"            \ SESSION_COOKIE_SECURE SESSION_COOKIE_PATH SESSION_COOKIE_HTTPONLY
-"            \ SESSION_SAVE_EVERY_REQUEST SESSION_EXPIRE_AT_BROWSER_CLOSE
-"            \ SESSION_ENGINE SESSION_FILE_PATH CACHE
-"            \ CACHE_MIDDLEWARE_KEY_PREFIX CACHE_MIDDLEWARE_SECONDS
-"            \ CACHE_MIDDLEWARE_ALIAS COMMENTS_ALLOW_PROFANITIES
-"            \ PROFANITIOS_LIST AUTHENTICATION_BACKENDS LOGIN_URL LOGOUT_URL
-"            \ LOGIN_REDIRECT_URL PASSWORD_RESET_TIMEOUT_DAYS PASSWORD_HASHERS
-"            \ SIGNING_BACKEND CSRF_FAILURE_VIEW CSRF_COOKIE_NAME
-"            \ CSRF_COOKIE_DOMAIN CSRF_COOKIE_PATH CSRF_COOKIE_SECURE
-"            \ MESSAGE_STORAGE LOGGING_CONFIG LOGGING
-"            \ DEFAULT_EXCEPTION_REPORTER_FILTER TEST_RUNNER FIXTURE_DIRS
-"            \ STATICFILES_DIRS STATICFILES_STORAGE STATICFILES_FINDERS
-"            \ SITE_ID COMMENTS_HIDE_REMOVED COMMENT_MAX_LENGTH
-"            \ SUGGEST_REMOVAL MODERATOR_DELETION MODERATOR_APPROVAL
-"            \ ADDITION CHANGE DELETION
-"" }}}
+
 "" djangoComment {{{
 "syn keyword djangoComment BaseCommentAbstractModel Comment content_type
 "            \ object_pk content_object site get_content_object_url user

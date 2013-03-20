@@ -4,7 +4,7 @@
 " Version:    1.0
 " Maintainer: Kolozsi Robert
 " Date Created: Jan 2, 2013
-" Last Changed: Jan 5, 2013
+" Last Changed: March 20, 2013
 " Description: This is constantly work in progress.
 "              For color numbers (0-255) see:
 "              http://www.calmar.ws/vim/256-xterm-24bit-rgb-color-chart.html
@@ -113,7 +113,7 @@ hi diffChange   ctermfg=bg  guifg=bg      ctermbg=181 guibg=#dfafaf
 hi diffText     ctermfg=bg  guifg=bg      ctermbg=174 guibg=#df8787 cterm=none gui=none
 
 " Django syntax highlighting
-" hi djDjango     ctermfg=22 guifg=#005f00                           cterm=none gui=none
+"hi djDjango     ctermfg=22 guifg=#005f00                           cterm=none gui=none
 "hi djDjango     ctermfg=149 guifg=#afd75f                           cterm=none gui=none
 "hi djMain       ctermfg=28 guifg=#008700                           cterm=none gui=none
 hi djClass        ctermfg=113 guifg=#87d75f                           cterm=none gui=none
