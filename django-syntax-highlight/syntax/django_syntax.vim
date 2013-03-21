@@ -1301,6 +1301,7 @@ syn keyword djangoFunctions CASCADE DO_NOTHING DV_maker Deserializer DocFileSuit
             \ write_pot_file writeln writer writer_enters writer_leaves
             \ xframe_options_deny xframe_options_exempt
             \ xframe_options_sameorigin xhtml xml xreadlines year_lookup_bounds
+            \ use_for_related_field
 " }}}
 
 syn keyword djangoMainModules bin conf contrib core db dispatch forms http
@@ -1320,240 +1321,121 @@ syn keyword djangoCoreModules cache context_processors exceptions files handlers
             \ mail management paginator serializers servers
             \ signals signing urlresolvers validators wsgi xheaders
 
-"syn keyword djangoDbModules backends models transaction utils
-"
-"syn keyword djangoDispatchModules dispatcher saferef
-"
-"syn keyword djangoFormsModules extras fields formsets forms models util widgets
-"
-"syn keyword djangoHttpModules multipartparser utils
-"
-"syn keyword djangoMiddlewareModules cache clickjacking common csrf doc
-"            \ gzip http locale transaction
-"
-"syn keyword djangoShortcutsModules render_to_response render redirect
-"            \ get_object_or_404 get_list_or_404
-"
-"syn keyword djangoTemplateModules base context debug defaultfilters defaulttags
-"            \ loader loaders loader_tags response smartif
-"
-"syn keyword djangoTemplatetagsModules cache future i18n l10n static tz
-"
-"" djangoTemplateBase {{{
-"syn keyword djangoTemplateBase TemplateSyntaxError TemplateDoesNotExist
-"            \ TemplateEncodingError VariableDoesNotExist InvalidTemplateLibrary
-"            \ Origin StringOrigin Template compile_string Token split_contents
-"            \ Lexer tokenize create_token Parser parse skip_past
-"            \ create_variable_node create_nodelist extend_nodelist
-"            \ enter_command exit_command error empty_variable empty_block_tag
-"            \ invalid_block_tag unclosed_block_tag compile_function_error
-"            \ next_token prepend_token delete_first_token add_library
-"            \ find_filter TokenParser top more back tag value next_space_index
-"            \ FilterExpression resolve args_check resolve_variable Variable
-"            \ Node NodeList get_node_by_type render_node TextNode VariableNode
-"            \ token_kwargs parse_bits generic_tag_compiler TagHelperNode
-"            \ Library get_resolved_arguments tag_function filter
-"            \ filter_function simple_tag assigment_tag compile_func
-"            \ inclusion_tag InclusionNode is_library_missing import_library
-"            \ get_tamplatetags_modules get_library add_to_builtin
-""}}}
-"
-"syn keyword djangoTemplateContext ContextPopException BaseContext push pop
-"            \ has_key Context get_standard_perocessors RequestContext
-"
-"syn keyword djangoTemplateDebug DebugLexer DebugParser tokenize create_togen
-"            \ enter_command exit_command error unclosed_block_tag
-"            \ DebugNodeList DebugVariableNode
-"
-"" djangoTemplateDefaultFilter {{{
-"syn keyword djangoTemplateDefaultFilters stringfilter addslashes capfirst
-"            \ escapejs_filter fix_ampresands_filter floatformat iriencode
-"            \ linenumbers lower make_list slugify stringformat title
-"            \ truncatechars truncatewords truncatewords_html upper urlencode
-"            \ urlize urlizetrunc wordcount wordwrap ljust rjust center cut
-"            \ escape_filter force_escape linebreaks_filter linebreaksbr safe
-"            \ safeseq removetags striptags dictsort dictsortreversed first
-"            \ join last length length_is random slice_filter unordered_list
-"            \ add get_digit date time timesince_filter timeuntil_filter default
-"            \ default_if_none divisibleby yesno filesizeformat pluralize
-"            \ phone2numeric_filter pprint
-""}}}
-"
-"" FIXME: syn keyword djangoTemplateDefaulttags!!!!
-"
-"syn keyword djangoTemplateLoader BaseLoader load_template_source LoaderOrigin
-"            \ make_origin find_template_loader find_template
-"            \ get_template get_template_from_string render_to_string
-"            \ select_template Loader ExtendsError BlockContext BlockNode
-"            \ ExtendsNode BaseIncludeNode ConstIncludeNode IncludeNode
-"            \ do_block do_extends do_include
-"
-"syn keyword djangoTemplateResponse ContentNotRenderedError SimpleTemplateResponse
-"            \ resolve_context resolve_template render_content
-"            \ add_post_render_callback is_rendered TemplateResponse
-"
-"syn keyword djangoTemplateSmatif TokenBase nud led display infix prefix
-"            \ OPERATORS Literal EndToken IfParser translate_token
-"            \ next parse expression
-"
-"" djangoHttp {{{
-"syn keyword djangoHttp Cookie SimpleCookie CompatCookie build_request_repr
-"            \ UnreadablePostError HttpRequest get_host get_full_path get_signed_cookie
-"            \ build_absolute_uri is_secure is_ajax parse_file_upload body raw_post_data read
-"            \ readline xreadlines readlines QueryDict urlencode parse_cookie BadHeadError
-"            \ HttpResponse HttpResponseRedirectBase HttpResponseRedirect
-"            \ HttpResponseNotModified HttpResponseBadRequest HttpResponseNotFound
-"            \ HttpResponseForbidden HttpResponseNotAllowed HttpResponseGone
-"            \ HttpResponseServerError str_to_unicode MultiPartParserError
-"            \ InputStreamExhausted MultiPartParser LazyStream ChunkIter InterBoundaryIter
-"            \ BoundaryIter exhaust parse_boundary_stream Parser parse_header
-"            \ fix_location_header conditional_content_removal fix_IE_for_attach
-"            \ fix_IE_for_vary
-""}}}
-"
-"syn keyword djangoTestModules client _doctest html signals simple testcase utils
-"
-"" djangoUtilsModules {{{
-"syn keyword djangoUtilsModules archive autoreload baseconv cache checksums
-"            \ copycompat crypto daemonize datastructure dateformat dateparse
-"            \ dates datetime_safe decorators dictconfig encoding feedgenerator
-"            \ formats functinal hashcompat html_parser html http importlib ipv6
-"            \ itercompat jslex log module_loading numberformat _os regex_helper
-"            \ safestring simplejson synch termcolors text timesince timezone
-"            \ translation tree tzinfo unittest version xmlutil
-"" }}}
-"
-"syn keyword djangoViewsModules csrf debug decorators defaults generic i18n
-"            \ static very edit create_update date_based dates
-"            \ detail list_detail list simpl
-"
-"syn keyword djangoFieldTypes AutoField BigIntegerField BooleanField CharField
-"            \ CommaSeparatedIntegerField DateField DateTimeField DecimalField
-"            \ EmailField FileField FilePathField FloatField ImageField
-"            \ IntegerField IPAddressField GenericIPAddressField
-"            \ NullBooleanField PositiveIntegerField PositiveSmallIntegerField
-"            \ SlugField SmallIntegerField TextField TimeField URLField
-"            \ ForeignKey ManyToManyField OneToOneField
-"
-"syn keyword djangoFieldOptions null blank choices db_column db_index
-"            \ db_tablespace default editable error_messages help_text
-"            \ primary_key unique unique_for_date unique_for_month
-"            \ unique_for_year verbose_name validators max_length
-"            \ auto_now auto_now_add max_digits decimal_places upload_to mode
-"            \ open close save path match recursive height_field width_field
-"            \ protocol unpack_ipv4 verify_exists limit_choices_to related_name
-"            \ to_field on_delete symmetrical through db_table parent_link
-"
-"syn keyword djangoMetaOptions abstract app_label db_table db_tablespace
-"            \ get_latest_by managed order_with_respect_to ordering
-"            \ permissions proxy unique_together verbose_name verbose_name_plural
-"
-"syn keyword djangoQuerySet QuerySet ordered db query filter exclude annotate
-"            \ order_by reverse distinct values values_list dates none all
-"            \ select_related prefetch_related extra defer only using
-"            \ select_to_update get create get_or_create bulk_create count
-"            \ in_bulk iterator latest aggregate exists
-"            \ update delete selsect_for_update
+syn keyword djangoTestModules client _doctest html signals simple testcase utils
+
+" djangoUtilsModules {{{
+syn keyword djangoUtilsModules archive autoreload baseconv cache checksums
+            \ copycompat crypto daemonize datastructure dateformat dateparse
+            \ dates datetime_safe decorators dictconfig encoding feedgenerator
+            \ formats functinal hashcompat html_parser html http importlib ipv6
+            \ itercompat jslex log module_loading numberformat _os regex_helper
+            \ safestring simplejson synch termcolors text timesince timezone
+            \ translation tree tzinfo unittest version xmlutil
+" }}}
+
+syn keyword djangoViewsModules csrf debug decorators defaults generic i18n
+            \ static very edit create_update date_based dates
+            \ detail list_detail list simpl
+
+syn keyword djangoFieldOptions null blank choices db_column db_index
+            \ db_tablespace default editable error_messages help_text
+            \ primary_key unique unique_for_date unique_for_month
+            \ unique_for_year verbose_name validators max_length
+            \ auto_now auto_now_add max_digits decimal_places upload_to mode
+            \ open close save path match recursive height_field width_field
+            \ protocol unpack_ipv4 verify_exists limit_choices_to related_name
+            \ to_field on_delete symmetrical through db_table parent_link
+
+syn keyword djangoMetaOptions abstract app_label db_table db_tablespace
+            \ get_latest_by managed order_with_respect_to ordering
+            \ permissions proxy unique_together verbose_name verbose_name_plural
 
 syn match djangoFieldLookup ".+__exact\|.+__iexact\|.+__contains\|.+__icontains\|.+__in\|.+__gt\|.+__gte\|.+__lt\|.+__lte\|.+__startswith\|.+__istartswith\|.+__endswith\|.+__iendswith\|.+__range\|.+__year\|.+__month\|.+__day\|.+__week_day\|.+__isnull\|.+__search\|.+__reqex\|.+__iregex"
-
-"syn keyword djangoAggregationFunctins Avg Count Max Min StdDev Sum Varianc
-"
-"syn keyword djangoInstanceMethods full_clean clean_fields clean save pk delete
-"            \ get_absolute _url permalin
 
 syn match djangoCustomFunctions
             \ "\(get_\S\+_display\)\|\(get_next_by_\S\+\)\|\(get_previous_by_\S\+\)"
 
-"syn keyword djangoManagers Manager RelatedManager get_query_set
-"            \ objects use_for_related_field
+" djangoAdmin {{{
+syn keyword djangoAdmin actions actions_on_top actions_on_bottom
+            \ actions_selection_counter date_hierarchy exclude fields fieldsets
+            \ classes description filter_horizontal filter_vertical form
+            \ formfields_overrides inlines list_display list_display_links
+            \ list_editable list_filter list_max_show_all list_per_page
+            \ list_select_related ordering paginator prepopulated_fields
+            \ radio_fields raw_id_fields readonly_fields save_as save_on_top
+            \ search_fields add_form_template change_from_template
+            \ change_list_template delete_confimation_template
+            \ delete_selected_confirmation_template object_history_template
+            \ LogEntryManager LogEntry is_addition is_change is_deletion
+            \ get_edited_object get_admin_url FilterSelectMultiple
+            \ media render AdminDateWidget AdminTimeWidget AdminSplitDateTime
+            \ AdminRadioFieldRenderer AdminFileWidget
+            \ url_params_from_lookup_dict ForeignKeyRawIdWidget
+            \ base_url_parameters url_parameters
+"}}}
 
-"" djangoTranscactions {{{
-"syn keyword djangoTransactions autocommit commit_on_success
-"            \ commit_manually savepoint savepoint_commit savepoint_rollback
-"" }}}
+" djangoAdminMethods {{{
+syn keyword djangoAdminMethods save_model delete_model save_formset
+            \ get_ordering save_related get_readonly_fields
+            \ get_prepolulated_fields get_list_display get_list_display_links
+            \ get_urls get_form get_formsets formfield_for_foreignkey
+            \ formfield_or_manytomany formfield_for_choice_field
+            \ get_changelist has_add_permission has_change_permission
+            \ has_delete_permission queryset message_user get_paginator
+            \ add_view change_view changelist_view delete_view history_view
+"}}}
 
-"" djangoAdmin {{{
-"syn keyword djangoAdmin ModelAdmin actions actions_on_top actions_on_bottom
-"            \ actions_selection_counter date_hierarchy exclude fields fieldsets
-"            \ classes description filter_horizontal filter_vertical form
-"            \ formfields_overrides inlines list_display list_display_links
-"            \ list_editable list_filter list_max_show_all list_per_page
-"            \ list_select_related ordering paginator prepopulated_fields
-"            \ radio_fields raw_id_fields readonly_fields save_as save_on_top
-"            \ search_fields add_form_template change_from_template
-"            \ change_list_template delete_confimation_template
-"            \ delete_selected_confirmation_template object_history_template
-"            \ LogEntryManager LogEntry is_addition is_change is_deletion
-"            \ get_edited_object get_admin_url FilterSelectMultiple
-"            \ media render AdminDateWidget AdminTimeWidget AdminSplitDateTime
-"            \ AdminRadioFieldRenderer AdminFileWidget
-"            \ url_params_from_lookup_dict ForeignKeyRawIdWidget
-"            \ base_url_parameters url_parameters
-""}}}
+" djangoModuleClass {{{
+syn keyword djangoModelClass ModelBase ModelState Model Empty
+            \ simple_class_factory model_upickle subclass_exception Aggregate
+            \ ProtectedError CASCADE PROTECT SET SET_DEFAULT DO_NOTHING
+            \ force_managed Collector ExpressinNode F DateModifierNode AppCache
+            \ ensure_default_manager Manager contribute_to_class
+            \ _set_creation_counter _copy_to_model db_manager
+            \ get_empty_query_set ManagerDescriptior Options add_field
+            \ add_virtual_field setup_ok setup_proxy verbose_name_raw _fields
+            \ get_fields_with_model _fill_fields_cache _many_to_many
+            \ get_m2m_with_model get_field get_field_by_name
+            \ get_all_field_names init_name_map get_add_permission
+            \ get_change_permission get_delele_permission
+            \ get_all_related_objects get_all_related_objecs_with_model
+            \ _fill_related_objects_cache get_all_related_many_to_many_objects
+            \ get_all_related_m2m_with_model get_base_chain get_parent_list
+            \ get_ancestor_link get_ordered_objects pk_index
+            \ CHUNK_SIZE ITER_CHUNK_SIZE REPR_OUTPUT_SIZE
+            \ BoundRelatedObject RelatedObject get_choices get_db_prep_lookup
+            \ editable_fields bind get_accessor_name get_cache_name
+            \ class_prepared pre_init post_init pre_save post_save pre_delete
+            \ post_delete post_syncdb m2m_changed FileDescriptor
+            \ get_internal_type get_prep_lookup get_prep_value pre_save
+            \ contribute_to_class get_directory_name get_filename
+            \ generate_filename save_from_data formfiled ImageFileDescriptor
+            \ update_dimension_fileds OrderWrt RECURSIVE_RELATIONSHIP_CONSTANT
+            \ pending_loops add_lazy_relation db_pending_lookups RelatedField
+            \ contribute_to_class set_attributes_from_rel db_related_class
+            \ get_prop_class get_db_prep_lookup _pk_trace related_query_name
+            \ SingleRelatedObjectDescriptor is_cached get_query_set
+            \ get_prefetch_query_set ReverseSingleRelatedObjectDescriptor
+            \ ForeignRelatedObjectsDescriptor related_manager
+            \ create_many_related_manager _add_itmes _remove_items
+            \ _clear_items ManyRelatedObjectsDescriptior
+            \ related_manager_cls ReverseManyRelatedObjectsDescriptor
+            \ through ManyToOneRel is_hidden OneToOneRel ManyToManyRel
+            \ get_attname get_validator_unique_lookup_type get_default
+            \ get_db_prep_save value_to_string contribute_to_related_class
+            \ db_type create_many_to_many_intemediary_model
+            \ SubfiledBase Creator make_contrib
+" }}}
 
-"" djangoAdminMethods {{{
-"syn keyword djangoAdminMethods save_model delete_model save_formset
-"            \ get_ordering save_related get_readonly_fields
-"            \ get_prepolulated_fields get_list_display get_list_display_links
-"            \ get_urls get_form get_formsets formfield_for_foreignkey
-"            \ formfield_or_manytomany formfield_for_choice_field
-"            \ get_changelist has_add_permission has_change_permission
-"            \ has_delete_permission queryset message_user get_paginator
-"            \ add_view change_view changelist_view delete_view history_view
-""}}}
-
-"" djangoModuleClass {{{
-"syn keyword djangoModelClass ModelBase ModelState Model Empty
-"            \ simple_class_factory model_upickle subclass_exception Aggregate
-"            \ ProtectedError CASCADE PROTECT SET SET_DEFAULT DO_NOTHING
-"            \ force_managed Collector ExpressinNode F DateModifierNode AppCache
-"            \ ensure_default_manager Manager contribute_to_class
-"            \ _set_creation_counter _copy_to_model db_manager
-"            \ get_empty_query_set ManagerDescriptior Options add_field
-"            \ add_virtual_field setup_ok setup_proxy verbose_name_raw _fields
-"            \ get_fields_with_model _fill_fields_cache _many_to_many
-"            \ get_m2m_with_model get_field get_field_by_name
-"            \ get_all_field_names init_name_map get_add_permission
-"            \ get_change_permission get_delele_permission
-"            \ get_all_related_objects get_all_related_objecs_with_model
-"            \ _fill_related_objects_cache get_all_related_many_to_many_objects
-"            \ get_all_related_m2m_with_model get_base_chain get_parent_list
-"            \ get_ancestor_link get_ordered_objects pk_index
-"            \ CHUNK_SIZE ITER_CHUNK_SIZE REPR_OUTPUT_SIZE
-"            \ BoundRelatedObject RelatedObject get_choices get_db_prep_lookup
-"            \ editable_fields bind get_accessor_name get_cache_name
-"            \ class_prepared pre_init post_init pre_save post_save pre_delete
-"            \ post_delete post_syncdb m2m_changed FileDescriptor
-"            \ get_internal_type get_prep_lookup get_prep_value pre_save
-"            \ contribute_to_class get_directory_name get_filename
-"            \ generate_filename save_from_data formfiled ImageFileDescriptor
-"            \ update_dimension_fileds OrderWrt RECURSIVE_RELATIONSHIP_CONSTANT
-"            \ pending_loops add_lazy_relation db_pending_lookups RelatedField
-"            \ contribute_to_class set_attributes_from_rel db_related_class
-"            \ get_prop_class get_db_prep_lookup _pk_trace related_query_name
-"            \ SingleRelatedObjectDescriptor is_cached get_query_set
-"            \ get_prefetch_query_set ReverseSingleRelatedObjectDescriptor
-"            \ ForeignRelatedObjectsDescriptor related_manager
-"            \ create_many_related_manager _add_itmes _remove_items
-"            \ _clear_items ManyRelatedObjectsDescriptior
-"            \ related_manager_cls ReverseManyRelatedObjectsDescriptor
-"            \ through ManyToOneRel is_hidden OneToOneRel ManyToManyRel
-"            \ get_attname get_validator_unique_lookup_type get_default
-"            \ get_db_prep_save value_to_string contribute_to_related_class
-"            \ db_type create_many_to_many_intemediary_model
-"            \ SubfiledBase Creator make_contrib
-"" }}}
-
-"" djangoComment {{{
-"syn keyword djangoComment BaseCommentAbstractModel Comment content_type
-"            \ object_pk content_object site get_content_object_url user
-"            \ user_name user_email user_url comment submit_date ip_address
-"            \ is_public CommentManager CommentFlag AlreadyModerated
-"            \ NotModerated CommentModerator Moderator CommentPostBadRequest
-"            \ post_comment flag approve perform_flag perform_delete
-"            \ perform_approve next_redirect confirmation_view
-"" }}}
+" djangoComment {{{
+syn keyword djangoComment content_type
+            \ object_pk content_object site get_content_object_url user
+            \ user_name user_email user_url comment submit_date ip_address
+            \ is_public CommentManager CommentFlag AlreadyModerated
+            \ NotModerated CommentModerator Moderator CommentPostBadRequest
+            \ post_comment flag approve perform_flag perform_delete
+            \ perform_approve next_redirect confirmation_view
+" }}}
 
 if version >= 508
   if version <= 508
@@ -1564,7 +1446,8 @@ if version >= 508
 
 "  HiLink djangoDjango              djSub
   HiLink djangoMainModules         djClass
-"  HiLink djangoContribModules      djSub
+  HiLink djangoContribModules      djSub
+  HiLink djangoCoreModules         djSub
 "  HiLink djangoDbModules           djSub
 "  HiLink djangoDispatchModules     djSub
 "  HiLink djangoFormsModules        djSub
@@ -1572,36 +1455,36 @@ if version >= 508
 "  HiLink djangoMiddlewareModules   djSub
 "  HiLink djangoTemplateModules     djSub
 "  HiLink djangoTemplatetagsModules djSub
-"  HiLink djangoTestModules         djSub
-"  HiLink djangoUtilsModules        djSub
-"  HiLink djangoViewsModules        djSub
+  HiLink djangoTestModules         djSub
+  HiLink djangoUtilsModules        djSub
+  HiLink djangoViewsModules        djSub
 "
 "  HiLink djangoShortcutsModules    djFunct
 "  HiLink djangoFieldTypes          djFunct
-"  HiLink djangoMetaOptions         djFunct
+  HiLink djangoMetaOptions         djFunct
 "  HiLink djangoQuerySet            djFunct
-"  HiLink djangoFieldLookup         djFunct
+  HiLink djangoFieldLookup         djFunct
 "  HiLink djangoAggregationFunctins djFunct
 "  HiLink djangoInstanceMethods     djFunct
 "  HiLink djangoManagers            djFunct
-"  HiLink djangoFieldOptions        djFunct
+  HiLink djangoFieldOptions        djFunct
 "  HiLink djangoTransactions        djFunct
-"  HiLink djangoAdmin               djFunct
-"  HiLink djangoAdminMethods        djFunct
-"  HiLink djangoModelClass          djFunct
-"  HiLink djangoCustomFunctions     djFunct
+  HiLink djangoAdmin               djFunct
+  HiLink djangoAdminMethods        djFunct
+  HiLink djangoModelClass          djFunct
+  HiLink djangoCustomFunctions     djFunct
 "  HiLink djangoTemplateBase        djFunct
-"  HiLink djangoTemplateContext     djFunct
-"  HiLink djangoTemplateDebug       djFunct
+  HiLink djangoTemplateContext     djFunct
+  HiLink djangoTemplateDebug       djFunct
 "  HiLink djangoTemplateDefaultFilters djFunct
 "  HiLink djangoTemplateLoader      djFunct
 "  HiLink djangoTemplateResponse    djFunct
 "  HiLink djangoTemplateSmatif      djFunct
 "  HiLink djangoHttp                djFunct
 "  HiLink djangoConstants           Constant
-"  HiLink djangoComment             djFunct
+  HiLink djangoComment             djFunct
 "
-"  HiLink djangoModulesFixing       djSub
+  HiLink djangoModulesFixing       djSub
   HiLink djangoClasses              djClass
   HiLink djangoConstants            Constat
   HiLink djangoFunctions            djFunct

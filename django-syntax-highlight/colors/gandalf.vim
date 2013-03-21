@@ -117,7 +117,7 @@ hi diffText     ctermfg=bg  guifg=bg      ctermbg=174 guibg=#df8787 cterm=none g
 "hi djDjango     ctermfg=149 guifg=#afd75f                           cterm=none gui=none
 "hi djMain       ctermfg=28 guifg=#008700                           cterm=none gui=none
 hi djClass        ctermfg=113 guifg=#87d75f                           cterm=none gui=none
-" hi djSub        ctermfg=149 guifg=#afd75f                           cterm=none gui=none
+hi djSub        ctermfg=149 guifg=#afd75f                           cterm=none gui=none
 hi djFunct      ctermfg=149 guifg=#afd75f
 ""hi djStatements ctermfg=85 guifg=#5fffaf
 
