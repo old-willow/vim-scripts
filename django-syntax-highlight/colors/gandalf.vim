@@ -112,7 +112,7 @@ hi diffDelete   ctermfg=bg  guifg=bg      ctermbg=246 guibg=#949494 cterm=none g
 hi diffChange   ctermfg=bg  guifg=bg      ctermbg=181 guibg=#dfafaf
 hi diffText     ctermfg=bg  guifg=bg      ctermbg=174 guibg=#df8787 cterm=none gui=none
 
-" Django syntax highlighting
+" Specific fo django syntax highlighting
 "hi djDjango     ctermfg=22 guifg=#005f00                           cterm=none gui=none
 "hi djDjango     ctermfg=149 guifg=#afd75f                           cterm=none gui=none
 "hi djMain       ctermfg=28 guifg=#008700                           cterm=none gui=none

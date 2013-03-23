@@ -2,13 +2,11 @@
 " Django syntax coloring
 " Language: Python /Django Web framework/
 " Version: 0.1
-" Maintainer: Kolozsi Róbert <kolozsi.robert@gmail.com>
+" Maintainer: Kolozsi Róbert <https://github.com/old-willow>
 " Date Created: Jan 4, 2013
-" Last Change: March 20, 2013
+" Last Change: March 23, 2013
 "
 
-" Not particulary a techincal reason that I reject everything down from 700,
-" but hey, >= 700 is great so use it.
 if version < 700
     syntax clear
 endif
@@ -25,7 +23,7 @@ endif
 let g:loaded_django = 1
 
 " Django classes {{{1
-syn keyword djangoClasses ARCUITField ARDNIField ARPostalCodeField ARProvinceSelect
+syn keyword djangoClass ARCUITField ARDNIField ARPostalCodeField ARProvinceSelect
             \ ATSocialSecurityNumberField ATStateSelect ATZipCodeField
             \ AUPhoneNumberField AUPostCodeField AUStateField AUStateSelect
             \ ActionForm AdminAuthenticationForm
@@ -388,7 +386,7 @@ syn keyword djangoClasses ARCUITField ARDNIField ARPostalCodeField ARProvinceSel
 " }}}
 
 " Django Constants {{{1
-syn keyword djangoConstants ABSOLUTE_URL_OVERRIDES ACTION_CHECKBOX_NAME ADD ADDITION
+syn keyword djangoConstant ABSOLUTE_URL_OVERRIDES ACTION_CHECKBOX_NAME ADD ADDITION
             \ ADDRESS_HEADERS ADMINISTRATIVE_UNIT_CHOICES ADMINS ADMIN_FOR ALIAS
             \ ALLOWED_INCLUDE_ROOTS ALLOWED_VARIABLE_CHARS ALL_TERMS ALL_VAR AND
             \ APPEND_SLASH ARMED_FORCES_STATES ASCTIME_DATE ASKML
@@ -511,7 +509,7 @@ syn keyword djangoConstants ABSOLUTE_URL_OVERRIDES ACTION_CHECKBOX_NAME ADD ADDI
 " }}}
 
 " Django Functions {{{1
-syn keyword djangoFunctions CASCADE DO_NOTHING DV_maker Deserializer DocFileSuite DocFileTest
+syn keyword djangoFunction CASCADE DO_NOTHING DV_maker Deserializer DocFileSuite DocFileTest
             \ DocTestSuite IE_sanitize JSONArray JSONObject OutputString PROTECT
             \ SET SET_DEFAULT absolute_path abspathu accessed_time
             \ action_checkbox actions activate
@@ -1301,18 +1299,17 @@ syn keyword djangoFunctions CASCADE DO_NOTHING DV_maker Deserializer DocFileSuit
             \ write_pot_file writeln writer writer_enters writer_leaves
             \ xframe_options_deny xframe_options_exempt
             \ xframe_options_sameorigin xhtml xml xreadlines year_lookup_bounds
-            \ use_for_related_field
+            \ use_for_related_field _
 " }}}
 
 syn keyword djangoMainModules bin conf contrib core db dispatch forms http
             \ middleware shortcuts template templatetags
-            \ test utils views
+            \ test utils views models
 
 " 'db' is not always a module it can be a queryset option too.
-syn match djangoModulesFixing "\s\+[django]\([\.]\S\+\)\+"
-            \ contains=djangoContribModules display
+syn match djangoModulesFixing "\s\+django\(\.\S\+\)\+"
 
-syn keyword djangoContribModules contained admin admindocs auth comments contenttypes
+syn keyword djangoContribModules admin admindocs auth comments contenttypes
             \ databrowse flatpages formtools gis humanize
             \ localflavor markup messages redirects sessions
             \ sitemaps sites staticfiles syndication webdesig
@@ -1485,9 +1482,9 @@ if version >= 508
   HiLink djangoComment             djFunct
 "
   HiLink djangoModulesFixing       djSub
-  HiLink djangoClasses              djClass
-  HiLink djangoConstants            Constat
-  HiLink djangoFunctions            djFunct
+  HiLink djangoClass               djClass
+  HiLink djangoConstant            Constant
+  HiLink djangoFunction            djFunct
   delcommand HiLink
 endif
 
