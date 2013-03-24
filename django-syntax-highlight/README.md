@@ -106,4 +106,4 @@ Goal of this script is to take the input file:
 
 1. Sort all lines by alphabet
 2. Remove duplicates
-3. Format function names in such way that they don't cross the 80 character long line by appending ```'\ '``` chars at the beggining of each line and assuming 12 characters (indentation) at the beggining of line.
+3. Format function names in such way that they don't cross the 80th character in line and appending ```'\ '``` chars at the beggining of each line by assuming 12 characters (indentation).
