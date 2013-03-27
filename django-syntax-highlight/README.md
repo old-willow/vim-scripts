@@ -7,7 +7,7 @@ NOTE: Under development!!!
 
 I decided to create syntax highlighting file for Django Framework for my
 favourite text editor Vim.  I just want to have django specific code in
-different colors then my code.
+different color then my code.
 
 So the idea was to collect all the function names, constants, function argument
 names, classes and assign a greenish tone to them.
@@ -104,6 +104,6 @@ Save the file and you are good to go.  Now use this file as an input file.
 
 Goal of this script is to take the input file:
 
-1. Sort all lines by alphabet
+1. Sorts all lines by alphabet
 2. Remove duplicates
-3. Format function names in such way that they don't cross the 80th character in line and appending ```'\ '``` chars at the beggining of each line by assuming 12 characters (indentation).
+3. Format function names in such way that they don't cross the 80th character in line and appending ```'\ '``` chars at the beggining of each line by assuming 12 space characters (indentation).

@@ -1302,6 +1302,7 @@ syn keyword djangoFunction CASCADE DO_NOTHING DV_maker Deserializer DocFileSuite
             \ use_for_related_field _
 " }}}
 
+" Module names are actually file names and there are listed below:
 syn keyword djangoMainModules bin conf contrib core db dispatch forms http
             \ middleware shortcuts template templatetags
             \ test utils views models
@@ -1343,11 +1344,14 @@ syn keyword djangoFieldOptions null blank choices db_column db_index
             \ protocol unpack_ipv4 verify_exists limit_choices_to related_name
             \ to_field on_delete symmetrical through db_table parent_link
 
+" Some function names are not defined in standard way with the 'def' keyword so
+" they are picked up and listed manualy.
+
 syn keyword djangoMetaOptions abstract app_label db_table db_tablespace
             \ get_latest_by managed order_with_respect_to ordering
             \ permissions proxy unique_together verbose_name verbose_name_plural
 
-syn match djangoFieldLookup ".+__exact\|.+__iexact\|.+__contains\|.+__icontains\|.+__in\|.+__gt\|.+__gte\|.+__lt\|.+__lte\|.+__startswith\|.+__istartswith\|.+__endswith\|.+__iendswith\|.+__range\|.+__year\|.+__month\|.+__day\|.+__week_day\|.+__isnull\|.+__search\|.+__reqex\|.+__iregex"
+syn match djangoFieldLookups ".+__exact\|.+__iexact\|.+__contains\|.+__icontains\|.+__in\|.+__gt\|.+__gte\|.+__lt\|.+__lte\|.+__startswith\|.+__istartswith\|.+__endswith\|.+__iendswith\|.+__range\|.+__year\|.+__month\|.+__day\|.+__week_day\|.+__isnull\|.+__search\|.+__reqex\|.+__iregex"
 
 syn match djangoCustomFunctions
             \ "\(get_\S\+_display\)\|\(get_next_by_\S\+\)\|\(get_previous_by_\S\+\)"
@@ -1369,17 +1373,6 @@ syn keyword djangoAdmin actions actions_on_top actions_on_bottom
             \ AdminRadioFieldRenderer AdminFileWidget
             \ url_params_from_lookup_dict ForeignKeyRawIdWidget
             \ base_url_parameters url_parameters
-"}}}
-
-" djangoAdminMethods {{{
-syn keyword djangoAdminMethods save_model delete_model save_formset
-            \ get_ordering save_related get_readonly_fields
-            \ get_prepolulated_fields get_list_display get_list_display_links
-            \ get_urls get_form get_formsets formfield_for_foreignkey
-            \ formfield_or_manytomany formfield_for_choice_field
-            \ get_changelist has_add_permission has_change_permission
-            \ has_delete_permission queryset message_user get_paginator
-            \ add_view change_view changelist_view delete_view history_view
 "}}}
 
 " djangoModuleClass {{{
@@ -1405,11 +1398,11 @@ syn keyword djangoModelClass ModelBase ModelState Model Empty
             \ class_prepared pre_init post_init pre_save post_save pre_delete
             \ post_delete post_syncdb m2m_changed FileDescriptor
             \ get_internal_type get_prep_lookup get_prep_value pre_save
-            \ contribute_to_class get_directory_name get_filename
+            \ get_directory_name get_filename
             \ generate_filename save_from_data formfiled ImageFileDescriptor
             \ update_dimension_fileds OrderWrt RECURSIVE_RELATIONSHIP_CONSTANT
             \ pending_loops add_lazy_relation db_pending_lookups RelatedField
-            \ contribute_to_class set_attributes_from_rel db_related_class
+            \ set_attributes_from_rel db_related_class
             \ get_prop_class get_db_prep_lookup _pk_trace related_query_name
             \ SingleRelatedObjectDescriptor is_cached get_query_set
             \ get_prefetch_query_set ReverseSingleRelatedObjectDescriptor
@@ -1425,13 +1418,12 @@ syn keyword djangoModelClass ModelBase ModelState Model Empty
 " }}}
 
 " djangoComment {{{
-syn keyword djangoComment content_type
-            \ object_pk content_object site get_content_object_url user
-            \ user_name user_email user_url comment submit_date ip_address
-            \ is_public CommentManager CommentFlag AlreadyModerated
-            \ NotModerated CommentModerator Moderator CommentPostBadRequest
-            \ post_comment flag approve perform_flag perform_delete
-            \ perform_approve next_redirect confirmation_view
+syn keyword djangoComment content_type object_pk content_object site
+            \ get_content_object_url user user_name user_email user_url comment
+            \ submit_date ip_address is_public CommentManager CommentFlag
+            \ AlreadyModerated NotModerated CommentModerator Moderator
+            \ CommentPostBadRequest post_comment flag approve
+            \ perform_flag perform_delete perform_approve next_redirect confirmation_view
 " }}}
 
 if version >= 508
@@ -1441,46 +1433,24 @@ if version >= 508
     command -nargs=+ HiLink hi def link <args>
   endif
 
-"  HiLink djangoDjango              djSub
   HiLink djangoMainModules         djClass
   HiLink djangoContribModules      djSub
   HiLink djangoCoreModules         djSub
-"  HiLink djangoDbModules           djSub
-"  HiLink djangoDispatchModules     djSub
-"  HiLink djangoFormsModules        djSub
-"  HiLink djangoHttpModules         djSub
-"  HiLink djangoMiddlewareModules   djSub
-"  HiLink djangoTemplateModules     djSub
-"  HiLink djangoTemplatetagsModules djSub
   HiLink djangoTestModules         djSub
   HiLink djangoUtilsModules        djSub
   HiLink djangoViewsModules        djSub
-"
-"  HiLink djangoShortcutsModules    djFunct
-"  HiLink djangoFieldTypes          djFunct
+
   HiLink djangoMetaOptions         djFunct
-"  HiLink djangoQuerySet            djFunct
-  HiLink djangoFieldLookup         djFunct
-"  HiLink djangoAggregationFunctins djFunct
-"  HiLink djangoInstanceMethods     djFunct
-"  HiLink djangoManagers            djFunct
+  HiLink djangoFieldLookups        djFunct
   HiLink djangoFieldOptions        djFunct
-"  HiLink djangoTransactions        djFunct
   HiLink djangoAdmin               djFunct
   HiLink djangoAdminMethods        djFunct
   HiLink djangoModelClass          djFunct
   HiLink djangoCustomFunctions     djFunct
-"  HiLink djangoTemplateBase        djFunct
   HiLink djangoTemplateContext     djFunct
   HiLink djangoTemplateDebug       djFunct
-"  HiLink djangoTemplateDefaultFilters djFunct
-"  HiLink djangoTemplateLoader      djFunct
-"  HiLink djangoTemplateResponse    djFunct
-"  HiLink djangoTemplateSmatif      djFunct
-"  HiLink djangoHttp                djFunct
-"  HiLink djangoConstants           Constant
   HiLink djangoComment             djFunct
-"
+
   HiLink djangoModulesFixing       djSub
   HiLink djangoClass               djClass
   HiLink djangoConstant            Constant

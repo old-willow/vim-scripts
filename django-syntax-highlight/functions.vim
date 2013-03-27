@@ -211,4 +211,24 @@ function! Test_func()
 endfunction
 " }}}
 
+" Function that finds all appearance of a particlular word and displays the number. {{{
+function! Count_appearance_of_words(word)
+    normal gg
+    let s:in_searching = 1
+    let s:done = 1
+    let s:count = 0
+    " Find match for the pattern
+    while s:in_searching
+        if s:done !=# 0
+            let s:count += 1
+            search(word)
+        elseif s:done ==# 0
+            echo "No more matches!"
+            "let s:in_searching = 0
+            break
+        endif
+    endwhile
+endfunction
+}}}
+
 " vim: set foldmethod=marker foldlevel=2 tw=100:
