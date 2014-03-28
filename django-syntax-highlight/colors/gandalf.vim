@@ -9,6 +9,26 @@
 "              For color numbers (0-255) see:
 "              http://www.calmar.ws/vim/256-xterm-24bit-rgb-color-chart.html
 
+"
+" SOLARIZED HEX     16/8 TERMCOL  XTERM/HEX   L*A*B      sRGB        HSB
+" --------- ------- ---- -------  ----------- ---------- ----------- -----------
+" base03    #002b36  8/4 brblack  234 #1c1c1c 15 -12 -12   0  43  54 193 100  21
+" base02    #073642  0/4 black    235 #262626 20 -12 -12   7  54  66 192  90  26
+" base01    #586e75 10/7 brgreen  240 #4e4e4e 45 -07 -07  88 110 117 194  25  46
+" base00    #657b83 11/7 bryellow 241 #585858 50 -07 -07 101 123 131 195  23  51
+" base0     #839496 12/6 brblue   244 #808080 60 -06 -03 131 148 150 186  13  59
+" base1     #93a1a1 14/4 brcyan   245 #8a8a8a 65 -05 -02 147 161 161 180   9  63
+" base2     #eee8d5  7/7 white    254 #d7d7af 92 -00  10 238 232 213  44  11  93
+" base3     #fdf6e3 15/7 brwhite  230 #ffffd7 97  00  10 253 246 227  44  10  99
+" yellow    #b58900  3/3 yellow   136 #af8700 60  10  65 181 137   0  45 100  71
+" orange    #cb4b16  9/3 brred    166 #d75f00 50  50  55 203  75  22  18  89  80
+" red       #dc322f  1/1 red      160 #d70000 50  65  45 220  50  47   1  79  86
+" magenta   #d33682  5/5 magenta  125 #af005f 50  65 -05 211  54 130 331  74  83
+" violet    #6c71c4 13/5 brmagenta 61 #5f5faf 50  15 -45 108 113 196 237  45  77
+" blue      #268bd2  4/4 blue      33 #0087ff 55 -10 -45  38 139 210 205  82  82
+" cyan      #2aa198  6/6 cyan      37 #00afaf 60 -35 -05  42 161 152 175  74  63
+" green     #859900  2/2 green     64 #5f8700 60 -20  65 133 153   0  68 100  60
+"
 if &t_Co != 256 && ! has("gui_running")
   echomsg ""
   echomsg "err: please use GUI or a 256-color terminal"
@@ -29,9 +49,6 @@ endif
 let colors_name = "gandalf"
 
 "" General colors
-
-
-
 hi Normal       ctermfg=252 guifg=#d0d0d0 ctermbg=235 guibg=#444444 cterm=none gui=none
 hi CursorColumn                           ctermbg=254 guibg=#444444
 "hi LineNr       ctermfg=248 guifg=#a8a8a8 ctermbg=236 guibg=#444444
@@ -80,9 +97,11 @@ hi Todo         ctermfg=0   guifg=#000000 ctermbg=184 guibg=#dfdf00
 hi Type         ctermfg=146 guifg=#afafdf                           cterm=none gui=none
 hi Underlined   ctermfg=39  guifg=#00afff                           cterm=underline gui=underline
 
-"" These are my additions. Jan 2, 2013.
+"" These are my additions. March 28, 2013.
 hi Keyword      ctermfg=110 guifg=#87afdf                           cterm=none gui=none
 hi Function    ctermfg=214 guifg=#ffaf00                           cterm=none gui=none
+hi Conditional ctermfg=81 guifg=#5fd7ff                           cterm=none gui=none
+hi Repeat      ctermfg=81 guifg=#5fd7ff                           cterm=none gui=none
 "hi Function     ctermfg=226 guifg=#ffff00
 "hi Function     ctermfg=182 guifg=#dfafdf
 "hi Function     ctermfg=blue guifg=#808080
@@ -127,7 +146,7 @@ hi diffText     ctermfg=bg  guifg=bg      ctermbg=174 guibg=#df8787 cterm=none g
 "hi djDjango     ctermfg=149 guifg=#afd75f                           cterm=none gui=none
 "hi djMain       ctermfg=28 guifg=#008700                           cterm=none gui=none
 "hi djClass        ctermfg=113 guifg=#87d75f                           cterm=none gui=none
-hi djClass        ctermfg=194 guifg=#d7ffd7                           cterm=none gui=none
+hi djClass        ctermfg=112 guifg=#87d700                           cterm=none gui=none
 hi djSub        ctermfg=149 guifg=#afd75f                           cterm=none gui=none
 "hi djFunct      ctermfg=149 guifg=#afd75f
 hi djFunct      ctermfg=208 guifg=#ff8700

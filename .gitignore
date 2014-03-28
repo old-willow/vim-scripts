@@ -1,0 +1,5 @@
+.backup
+.swap
+*.swp
+input-files
+output-files
