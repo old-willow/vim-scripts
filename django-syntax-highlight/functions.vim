@@ -2,12 +2,12 @@
 " Start Date: Jan 15, 2013.
 " Last Edit: Jan 28, 2013.
 " Description: These functions are checking the current line in text
-" if it contains one or more space characters at the very end.
+" if it contains one or more space characters at the beggining and very end.
 " If it does, removes all of them and goes one line down.
 " There are two versions of function below:
 
 
-" Remve all space characters from the beggining of the line. {{{1
+" Remove all space characters from the beggining of the line. {{{1
 " Clean version for use individualy.
 " nnoremap <c-^> <silent> :call Remove_start_spaces_current<cr>
 function! Remove_start_spaces_current()
@@ -36,6 +36,7 @@ endfunction
 " }}}
 
 " Function can be called with the range of lines. {{{1
+" It removes all tail space characters from lines in defined range.
 " e.g.:
 " :1,1925call Remove_end_spaces_range()
 "
@@ -211,7 +212,7 @@ function! Test_func()
 endfunction
 " }}}
 
-" Function that finds all appearance of a particlular word and displays the number. {{{
+" Function that finds all appearance of a particular word and displays the number. {{{
 function! Count_appearance_of_words(word)
     normal gg
     let s:in_searching = 1
