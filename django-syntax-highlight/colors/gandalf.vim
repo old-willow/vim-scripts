@@ -110,7 +110,7 @@ hi Operator     ctermfg=110 guifg=#87afdf                           cterm=none g
 hi Label        ctermfg=146 guifg=#afafdf                           cterm=none gui=none
 hi String       ctermfg=97 guifg=#875faf
 hi Character    ctermfg=134 guifg=#af5fd7
-hi Include      ctermfg=230 guifg=#ffffd7
+hi Include      ctermfg=222 guifg=#ffd787
 
 "" Custom colors settings: javascript.
 "" DateEdited: Jan 4, 2013
