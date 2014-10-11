@@ -143,16 +143,11 @@ hi diffText     ctermfg=bg  guifg=bg      ctermbg=174 guibg=#df8787 cterm=none g
 
 " Specific fo django syntax highlighting
 "hi djDjango     ctermfg=22 guifg=#005f00                           cterm=none gui=none
-"hi djDjango     ctermfg=149 guifg=#afd75f                           cterm=none gui=none
 "hi djMain       ctermfg=28 guifg=#008700                           cterm=none gui=none
-"hi djClass        ctermfg=113 guifg=#87d75f                           cterm=none gui=none
 hi djClass        ctermfg=112 guifg=#87d700                           cterm=none gui=none
 hi djSub        ctermfg=149 guifg=#afd75f                           cterm=none gui=none
-"hi djFunct      ctermfg=149 guifg=#afd75f
 hi djFunct      ctermfg=208 guifg=#ff8700
 hi djHttpMethod ctermfg=196 guifg=#ff0000
-"hi djHttpMethod ctermfg=202 guifg=#ff5f00
 
-""hi djStatements ctermfg=85 guifg=#5fffaf
 
 " vim: set expandtab tabstop=2 shiftwidth=2 smarttab softtabstop=2 tw=100 colorcolumn=+1:
