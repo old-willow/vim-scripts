@@ -1,0 +1,14 @@
+./configure --prefix=$HOME/opt/vim \
+--enable-pythoninterp=yes \
+--enable-python3interp=yes \
+--ebable-multibyte \
+--enable-fontset \
+--enable-gui=gtk2 \
+--with-features=huge \
+--with-x \
+--enable-gtk2-check \
+--enable-gnome-check \
+--with-compiledby="Kolozsi Robert" \
+--enable-cscope \
+--with-python-config-dir= /usr/lib/python2.7/config-x86_64-linux-gnu/ \
+--with-python3-config-dir = /usr/lib/python3.4/config-3.4m-x86_64-linux-gnu/
