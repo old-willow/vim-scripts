@@ -149,5 +149,8 @@ hi djSub        ctermfg=149 guifg=#afd75f                           cterm=none g
 hi djFunct      ctermfg=208 guifg=#ff8700
 hi djHttpMethod ctermfg=196 guifg=#ff0000
 
+" jQuery
+hi jQueryGeneral       ctermfg=110 guifg=#87afdf                           cterm=none gui=none
+
 
 " vim: set expandtab tabstop=2 shiftwidth=2 smarttab softtabstop=2 tw=100 colorcolumn=+1:
